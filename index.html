@@ -424,7 +424,7 @@
     "41964": "Taiwan Okra",
     "4793": "Tamarilo Red",
     "4906": "Tarragon",
-    "4720": "Thai chili",
+    "4720": "Thai chilli",
     "4907": "Thyme",
     "4851": "Thyme",
     "4574": "Tinda",
@@ -647,111 +647,4 @@
       q.addEventListener('click', unlock, true);
       q.addEventListener('touchend', unlock, true);
     })();
-
-
-
-
-
-
-    // Show birthday popup with balloons once per user session
-function showBirthdayPopup() {
-    if(sessionStorage.getItem("birthdayShown")) return; // only once per session
-
-    sessionStorage.setItem("birthdayShown", "true");
-
-    const popup = document.getElementById("birthdayPopup");
-    popup.style.display = "flex";
-
-    // Create balloons
-    const colors = ["#FF4B5C","#FFD700","#4CAF50","#2196F3","#FF69B4"];
-    for(let i=0;i<15;i++){
-        const b = document.createElement("div");
-        b.className = "balloons";
-        b.style.left = Math.random()*90+"%";
-        b.style.background = colors[Math.floor(Math.random()*colors.length)];
-        b.style.animationDuration = (4+Math.random()*3) + "s";
-        document.body.appendChild(b);
-    }
-}
-
-function closeBirthdayPopup() {
-    document.getElementById("birthdayPopup").style.display = "none";
-}
-
-// Trigger after page load
-window.addEventListener("DOMContentLoaded", showBirthdayPopup);
-
-
-
-
-
-
-
-
 </script>
-
-
-
-
-<!-- Birthday popup for Kimberley -->
-<div id="birthdayPopup" style="
-    display:none;
-    position:fixed;
-    top:0; left:0; right:0; bottom:0;
-    background:rgba(0,0,0,0.5);
-    z-index:10000;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-">
-    <div style="
-        background:#fff;
-        border-radius:16px;
-        padding:24px;
-        text-align:center;
-        max-width:320px;
-        box-shadow:0 8px 24px rgba(0,0,0,0.3);
-        position:relative;
-        animation:popupFade 0.6s ease-out;
-    ">
-        <h2 style="color:#c70039; margin-bottom:12px;">🎉 Happy Birthday Kimberley! 🎉</h2>
-        <p>Everyone at FreshCo wishes you a fantastic day! 🥳</p>
-        <button onclick="closeBirthdayPopup()" style="
-            margin-top:16px;
-            padding:8px 16px;
-            border:none;
-            border-radius:8px;
-            background:#c7e21c;
-            color:#111;
-            font-weight:bold;
-            cursor:pointer;
-        ">Close</button>
-    </div>
-</div>
-
-<style>
-    @keyframes popupFade {
-      0% { transform: scale(0.7); opacity:0; }
-      100% { transform: scale(1); opacity:1; }
-    }
-
-    .balloons {
-      position:fixed;
-      width:40px;
-      height:60px;
-      background:red;
-      border-radius:50% 50% 50% 50%;
-      bottom:-80px;
-      animation:rise 5s linear infinite;
-      z-index:9999;
-    }
-    @keyframes rise {
-      0% { bottom:-80px; }
-      100% { bottom:100vh; }
-    }
-</style>
-
-
-
-</body>
-</html>
